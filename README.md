@@ -1,2 +1,3 @@
 # React js
-React js, simple project to learn and explore
+Simple project to learn and explore
+Integrated with Webpack, Babel and core react js

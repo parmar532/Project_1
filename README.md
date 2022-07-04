@@ -1,2 +1,2 @@
-# Project_1
+# React js
 React js, simple project to learn and explore

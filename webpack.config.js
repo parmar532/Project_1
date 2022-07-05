@@ -3,7 +3,7 @@ var path = require("path");
 var DIST_DIR = path.resolve(__dirname, "dist");
 var SRC_DIR = path.resolve(__dirname, "src");
 
-console.log("source Dir, :>> ", SRC_DIR);
+// console.log("source Dir, :>> ", SRC_DIR);
 
 var config = {
     devtool : 'source-map',

@@ -6,25 +6,26 @@ import { Home } from "./components/Home";
 
 
 class App extends React.Component {
-    
+
     render() {
         let userObj = {
-            username : 'gp532',
-            email : 'acb@xyz.com',
-            hobbies : ['Dancing', 'Reading']
+            id: 1,
+            username: 'gp532',
+            email: 'acb@xyz.com',
+            hobbies: ['Dancing', 'Reading']
         }
-        
+
         return (
             <div className="container">
                 <div className="row">
                     <div className="col-xs-10 col-xs-offset-1">
-                        <Header />
+                        <Header name='Home'/>
                     </div>
                 </div>
                 <p> test </p>
                 <div className="row">
                     <div className="col-xs-10 col-xs-offset-1">
-                        <Home obj={userObj}/>
+                        <Home obj={userObj} />
                         <Home />
                     </div>
                 </div>

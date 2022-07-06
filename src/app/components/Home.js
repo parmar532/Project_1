@@ -1,24 +1,47 @@
 import React from "react";
 
 export class Home extends React.Component {
-    render() {
-        console.log('props : ', this.props);
-        let content = ""
-        console.log(Object.keys(this.props).length);
+    constructor(props) {
+        super();
+        if (Object.keys(props).length > 0)
+            // this.newId = props.obj.id
+            this.state ={
+                newId : props.obj.id
+            }
+    }
+
+    changeId() {
         if (Object.keys(this.props).length > 0) {
-            content = <ul>
-                <li> Username --{">"} {this.props.obj.username} </li>
-                <li> Email Id --{">"} {this.props.obj.email} </li>
-                <li> Following are the hobbies :- 
-                    <ul>
-                        {
-                            this.props.obj.hobbies.map((element, index) => {
-                                return <li key={index}> {element} </li>
-                            })
-                        }
-                    </ul>
-                </li>
-            </ul>
+            this.setState({
+                newId : this.state.newId*0+Math.floor(Math.random() * 10) //console.log(this.newId);
+            })
+        }
+            
+    }
+
+    render() {
+        // console.log('props : ', this.props);
+        // console.log(this.state);
+        let content = ""
+        if (Object.keys(this.props).length > 0) {
+            content = <div> 
+                <ul>
+                    <li> Id --{">"} {this.state.newId} </li>
+                    <li> Username --{">"} {this.props.obj.username} </li>
+                    <li> Email Id --{">"} {this.props.obj.email} </li>
+                    <li> Following are the hobbies :-
+                        <ul>
+                            {
+                                this.props.obj.hobbies.map((element, index) => {
+                                    return <li key={index}> {element} </li>
+                                })
+                            }
+                        </ul>
+                    </li>
+                </ul>
+                <button className="btn btn-primary" type="button" onClick={this.changeId.bind(this)}>Change Id</button>
+            </div>
+
         }
         else {
             content = <ul>

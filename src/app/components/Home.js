@@ -6,7 +6,8 @@ export class Home extends React.Component {
         if (Object.keys(props).length > 0)
             // this.newId = props.obj.id
             this.state ={
-                newId : props.obj.id
+                newId : props.obj.id,
+                name : props.initialName
             }
     }
 
@@ -19,8 +20,21 @@ export class Home extends React.Component {
             
     }
 
+    onChangeLinkName(){
+        if (Object.keys(this.props).length > 0) 
+            this.props.onChangeLinkName(this.state.name);
+    }
+
+    onEventChange(event){
+        if (Object.keys(this.props).length > 0) 
+            console.log('Inside Event Change : ', event.target.value);
+            this.setState({
+                name : event.target.value
+            })
+    }       
+
     render() {
-        // console.log('props : ', this.props);
+        console.log('props : ', this.props);
         // console.log(this.state);
         let content = ""
         if (Object.keys(this.props).length > 0) {
@@ -39,7 +53,9 @@ export class Home extends React.Component {
                         </ul>
                     </li>
                 </ul>
-                <button className="btn btn-primary" type="button" onClick={this.changeId.bind(this)}>Change Id</button>
+                <button className="btn btn-primary" type="button" onClick={this.changeId.bind(this,event)}>Change Id</button>
+                <input className="offset-md-1" type="text" value={this.state.name} onChange={(event) => this.onEventChange(event)} />
+                <button className="btn btn-primary offset-md-2" type="button" onClick={this.onChangeLinkName.bind(this)}> Change Header Name</button>
             </div>
 
         }

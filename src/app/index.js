@@ -7,6 +7,27 @@ import { Home } from "./components/Home";
 
 class App extends React.Component {
 
+    constructor(){
+        super()
+        this.state = {
+            name : "Home"
+        }
+    }
+
+    customAlertForHeader(){
+        alert(this.state.name);        
+    }
+
+    onGreet () {
+        alert("Hello!");
+    }
+
+    onChangeLinkName(newName) {
+        this.setState({
+            name : newName
+        })
+    }
+
     render() {
         let userObj = {
             id: 1,
@@ -19,13 +40,17 @@ class App extends React.Component {
             <div className="container">
                 <div className="row">
                     <div className="col-xs-10 col-xs-offset-1">
-                        <Header name='Home'/>
+                        <Header name={this.state.name} greet={this.customAlertForHeader.bind(this)}/>
                     </div>
                 </div>
                 <p> test </p>
                 <div className="row">
                     <div className="col-xs-10 col-xs-offset-1">
-                        <Home obj={userObj} />
+                        <Home 
+                            obj={userObj} 
+                            onChangeLinkName={this.onChangeLinkName.bind(this)}
+                            initialName={this.state.name}
+                        />
                         <Home />
                     </div>
                 </div>

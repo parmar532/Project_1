@@ -1,45 +1,17 @@
 import React from "react";
+import {Link} from "react-router";
 
-// Creating same component with stateless with prop
 export const Header = (props) => {
-    // console.log(props.greet(props.name));
     return (
         <nav className="navbar navbar-default">
             <div className="container">
                 <div className="navbar-header">
                     <ul className="nav navbar-nav">
-                        <li>
-                            <a href="#">
-                                {props.name}
-                            </a>
-                        </li>
+                        <li><Link to={"/home"} activeStyle={{color: "red"}}>Home</Link></li>
+                        <li><Link to={"/user/10"} activeClassName={"active"}>User</Link></li>
                     </ul>
                 </div>
-                <button className="btn btn-primary justify-content-between" onClick={props.greet}> Greet</button>
             </div>
         </nav>
     );
-}
-
-// This components is with state method
-/*
-    export class Header extends React.Component {
-        render() {
-            return (
-                <nav className="navbar navbar-default">
-                    <div className="container">
-                        <div className="navbar-header">
-                            <ul className="nav navbar-nav">
-                                <li>
-                                    <a href="#">
-                                        Home
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-            );
-        }
-    }
-*/
+};

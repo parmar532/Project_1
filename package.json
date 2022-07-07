@@ -11,7 +11,7 @@
   "keywords": [
     "reactjs"
   ],
-  "author": "Gaurav Parmar",
+  "author": "Maximilian Schwarzmueller",
   "license": "MIT",
   "dependencies": {
     "react": "^15.2.1",
